@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+
+outputs/
+runs/
+
+*.pt
+
+data/test_videos/
+data/UCSD/
