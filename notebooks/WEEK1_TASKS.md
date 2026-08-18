@@ -50,4 +50,5 @@ Detection → Tracking → ReID → Segmentation → Anomaly → Visualization
 
 LƯU Ý
 Mỗi người làm phần riêng, không sửa trực tiếp main cùng lúc.
+
 Làm lưu phần test của mình trong test 
