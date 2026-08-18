@@ -40,3 +40,18 @@ Kết quả → Vẽ lên video → Box + ID + cảnh báo
 
 Chuẩn bị kết nối:
 Detection → Tracking → ReID → Segmentation → Anomaly → Visualization
+
+LƯU Ý
+Mỗi người làm phần riêng, không sửa trực tiếp main cùng lúc.
+
+main
+│
+├── feature/detection
+├── feature/dataset
+├── feature/tracking
+├── feature/reid
+├── feature/segmentation
+├── feature/anomaly
+├── feature/evaluation
+└── feature/ui
+Làm lưu phần test của mình trong test 
