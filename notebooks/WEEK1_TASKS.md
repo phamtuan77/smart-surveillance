@@ -3,6 +3,7 @@
 Mục tiêu: Mỗi người làm xong phần code của mình, chạy thử độc lập. Tuần 2 mới ghép tất cả lại.
 
 Người	Phần phụ trách	Nhiệm vụ đơn giản
+
 1	🔍 Detection	Dùng YOLOv8 để phát hiện người và vật thể trong video.
 
 2	👤 Tracking	Dùng ByteTrack để theo dõi người và gán ID cho từng người.
