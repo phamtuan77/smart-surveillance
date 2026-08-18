@@ -4,11 +4,17 @@ Mục tiêu: Mỗi người làm xong phần code của mình, chạy thử đ�
 
 Người	Phần phụ trách	Nhiệm vụ đơn giản
 1	🔍 Detection	Dùng YOLOv8 để phát hiện người và vật thể trong video.
+
 2	👤 Tracking	Dùng ByteTrack để theo dõi người và gán ID cho từng người.
+
 3	🔄 ReID	Nhận dạng lại người khi người đó xuất hiện lại trong video.
+
 4	🟦 Segmentation	Phát hiện và đánh dấu vùng đang chuyển động trong video.
+
 5	🚨 Anomaly	Tính Anomaly Score và xác định chuyển động bình thường / bất thường.
+
 6	🎨 Visualization	Vẽ khung người, ID, vùng chuyển động và cảnh báo lên video.
+
 7	🔗 Pipeline	Tạo phần kết nối để chuẩn bị ghép các module thành một chương trình.
 Chi tiết dễ hiểu hơn
 
@@ -43,15 +49,4 @@ Detection → Tracking → ReID → Segmentation → Anomaly → Visualization
 
 LƯU Ý
 Mỗi người làm phần riêng, không sửa trực tiếp main cùng lúc.
-
-main
-│
-├── feature/detection
-├── feature/dataset
-├── feature/tracking
-├── feature/reid
-├── feature/segmentation
-├── feature/anomaly
-├── feature/evaluation
-└── feature/ui
 Làm lưu phần test của mình trong test 
