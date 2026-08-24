@@ -3,15 +3,6 @@ import torch.nn as nn
 
 
 class AutoEncoder(nn.Module):
-    """
-    AutoEncoder dùng để học các frame bình thường.
-
-    Input:
-        Frame video đã được resize và flatten.
-
-    Output:
-        Frame được tái tạo lại.
-    """
 
     def __init__(self, input_size=64 * 64, latent_size=128):
         super().__init__()
