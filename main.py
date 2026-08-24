@@ -1,6 +1,7 @@
 import cv2
 
 from src.detection.detector import PersonDetector
+from src.segmentation.motion import MotionSegmenter
 
 
 VIDEO_PATH = "data/test_videos/test.mp4"
@@ -9,6 +10,7 @@ VIDEO_PATH = "data/test_videos/test.mp4"
 def main():
 
     detector = PersonDetector()
+    motion_segmenter = MotionSegmenter()
 
     cap = cv2.VideoCapture(VIDEO_PATH)
 
@@ -49,6 +51,8 @@ def main():
                 (0, 255, 0),
                 2
             )
+
+        frame, _ = motion_segmenter.annotate(frame)
 
         cv2.imshow(
             "Smart Surveillance - Detection",
