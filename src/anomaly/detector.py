@@ -6,17 +6,6 @@ from .autoencoder import AutoEncoder
 
 
 class AnomalyDetector:
-    """
-    Video
-       ↓
-    AutoEncoder
-       ↓
-    Reconstruction Error
-       ↓
-    Anomaly Score
-       ↓
-    NORMAL / ABNORMAL
-    """
 
     def __init__(
         self,
@@ -45,10 +34,6 @@ class AnomalyDetector:
     # =========================================================
 
     def preprocess_frame(self, frame):
-        """
-        Chuyển frame màu thành grayscale,
-        resize về 64x64 và flatten thành vector.
-        """
 
         gray = cv2.cvtColor(
             frame,
@@ -81,10 +66,6 @@ class AnomalyDetector:
         self,
         frame
     ):
-        """
-        Tính MSE giữa frame gốc
-        và frame được AutoEncoder tái tạo.
-        """
 
         input_tensor = self.preprocess_frame(
             frame
@@ -143,9 +124,6 @@ class AnomalyDetector:
     # =========================================================
 
     def predict(self, frame):
-        """
-        Phân loại một frame.
-        """
 
         reconstruction_error = (
             self.calculate_reconstruction_error(
