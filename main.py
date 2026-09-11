@@ -1,3 +1,4 @@
+
 import os
 import cv2
 
@@ -8,6 +9,7 @@ from src.segmentation.motion import MotionSegmenter
 from src.anomaly.detector import AnomalyDetector
 from src.visualization.visualizer import Visualizer
 from src.pipeline import SurveillancePipeline
+from src.agent.ai_agent import AIAgent
 
 
 VIDEO_PATH = "data/test_videos/test.mp4"
@@ -65,7 +67,17 @@ def create_pipeline():
         visualizer=visualizer
     )
 
-    return pipeline
+    # ==========================================
+    # AI AGENT
+    # ==========================================
+
+    print("[System] Khởi tạo AI Agent...")
+
+    agent = AIAgent(
+        threshold=anomaly_detector.threshold
+    )
+
+    return pipeline, agent
 
 
 def main():
@@ -150,10 +162,10 @@ def main():
         return
 
     # ==========================================
-    # 5. KHỞI TẠO PIPELINE
+    # 5. KHỞI TẠO PIPELINE + AI AGENT
     # ==========================================
 
-    pipeline = create_pipeline()
+    pipeline, agent = create_pipeline()
 
     print()
     print("=" * 60)
@@ -181,6 +193,18 @@ def main():
         context = pipeline.process_frame(
             frame,
             frame_id
+        )
+
+        # --------------------------------------
+        # AI AGENT PHÂN TÍCH TÌNH HUỐNG
+        # --------------------------------------
+
+        agent_result = agent.analyze(
+            detections=len(context.detections),
+            tracks=len(context.tracks),
+            reid_count=len(context.reid_features),
+            motion_count=len(context.motion_regions),
+            anomaly_score=context.anomaly_score
         )
 
         # --------------------------------------
@@ -223,6 +247,18 @@ def main():
                 f"Abnormal={context.is_abnormal}"
             )
 
+            print(
+                f"           "
+                f"AI Agent={agent_result['status']} | "
+                f"Action={agent_result['action']}"
+            )
+
+            if agent_result["reasons"]:
+                print(
+                    f"           "
+                    f"Reason={', '.join(agent_result['reasons'])}"
+                )
+
         frame_id += 1
 
         # --------------------------------------
@@ -263,3 +299,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
