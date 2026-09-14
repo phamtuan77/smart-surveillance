@@ -1,13 +1,3 @@
-<<<<<<< Updated upstream
-## Module Visualization 
-
-Module này chịu trách nhiệm nhận dữ liệu đầu ra từ các module khác (Detection, Tracking, Segmentation, Anomaly) và tổng hợp, vẽ trực quan lên video frame.
-
-###  Chức năng chính:
-*   Vẽ Bounding Box và gán ID của người/vật thể đang được theo dõi.
-*   Hiển thị vùng chuyển động (Segmentation Mask) đè lên video với hiệu ứng trong suốt.
-*   Hiển thị trạng thái cảnh báo trên màn hình: Bình thường (Màu xanh) hoặc Phát hiện bất thường (Màu đỏ) kèm theo Anomaly Score.
-=======
 # SMART SURVEILLANCE SYSTEM
 
 Hệ thống giám sát thông minh áp dụng các kỹ thuật Thị giác máy tính (Computer Vision) và Học sâu (Deep Learning) để theo dõi đối tượng, nhận diện chuyển động và phát hiện bất thường trong thời gian thực.
@@ -64,4 +54,3 @@ streamlit run app/streamlit_app.py
 | :---: | :---: |
 | <video src="./data/test_videos/test.mp4" width="400" controls></video> | <video src="./outputs/smart_surveillance_output.mp4" width="400" controls></video> |
 
->>>>>>> Stashed changes
